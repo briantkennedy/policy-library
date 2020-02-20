@@ -67,5 +67,38 @@
         }
       ]
     }
+  }, {
+    "name": "//storage.googleapis.com/test_all_authenticated_users",
+    "asset_type": "storage.googleapis.com/Bucket",
+    "iam_policy": {
+      "version": 1,
+      "etag": "BwWKsK1c7h0=",
+      "bindings": [
+        {
+          "role": "roles/storage.legacyBucketOwner",
+          "members": [
+            "projectEditor:jinwu-test-nest",
+            "projectOwner:jinwu-test-nest"
+          ]
+        },
+        {
+          "role": "roles/storage.legacyBucketReader",
+          "members": [
+            "projectViewer:jinwu-test-nest"
+          ]
+        },
+        {
+          "role": "roles/storage.objectViewer",
+          "members": [
+            "allAuthenticatedUsers"
+          ]
+        }
+      ]
+    },
+    "ancestors": [
+      "projects/508938580997",
+      "folders/396521612403",
+      "organizations/433637338589"
+    ]
   }
 ]
