@@ -26,9 +26,19 @@ all_violations[violation] {
 	violation := issues[_]
 }
 
+test_violations_tmp {
+	resource := data.test.fixtures.storage_bucket_world_readable.assets[3]
+	constraint := data.test.fixtures.storage_bucket_world_readable.constraints.forbid_world_readable_storage_bucket
+
+	issues := deny with input.asset as resource
+		 with input.constraint as constraint
+
+    count(issues) == 1
+}
+
 # Confirm total violations count
 test_storage_iam_violations_count {
-	count(all_violations) == 2
+	count(all_violations) == 3
 }
 
 test_storage_iam_violations_basic {
